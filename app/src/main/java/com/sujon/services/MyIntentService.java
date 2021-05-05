@@ -1,7 +1,9 @@
 package com.sujon.services;
 
 import android.app.IntentService;
+import android.app.Service;
 import android.content.Intent;
+import android.os.IBinder;
 import android.util.Log;
 import androidx.annotation.Nullable;
 
@@ -13,28 +15,25 @@ import androidx.annotation.Nullable;
  * TODO: Customize class - update intent actions, extra parameters and static
  * helper methods.
  */
-public class MyIntentService extends IntentService {
+public class MyIntentService extends Service {
 
     private static final String TAG = "MyIntentService";
 
-    public MyIntentService() {
-        super("MyIntentService");
-    }
-
     @Override
-    protected void onHandleIntent(@Nullable Intent intent) {
-        Log.i(TAG, "onHandleIntent: Service Started");
-        int i =0;
-        while (i<99999){
-            Log.i(TAG, "onHandleIntent: service running!");
-            i++;
-        }
-
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i(TAG, "onStartCommand: Service started");
+        return START_STICKY;
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "onDestroy: Service Destroyed");
+    }
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 }

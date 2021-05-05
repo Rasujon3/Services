@@ -13,6 +13,6 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this,MyIntentService.class);
         startService(intent);
-        
+
     }
 }
