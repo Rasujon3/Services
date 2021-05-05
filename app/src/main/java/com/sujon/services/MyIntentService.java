@@ -25,7 +25,7 @@ public class MyIntentService extends IntentService {
     protected void onHandleIntent(@Nullable Intent intent) {
         Log.i(TAG, "onHandleIntent: Service Started");
         int i =0;
-        while (i<9999){
+        while (i<99999){
             Log.i(TAG, "onHandleIntent: service running!");
             i++;
         }
